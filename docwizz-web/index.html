@@ -11,34 +11,98 @@
     <link type="text/css" rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,400italic|Josefin+Slab:400,700italic">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/greensock/TweenMax.min.js" type="text/javascript"></script>
+    <script src="js/iscroll.js"></script>
+    <script src="js/jquery.scrollmagic.min.js"></script>
+    <script src="js/jquery.scrollmagic.debug.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div id="content-wrapper">
 
 		<section id="titlechart">
-			<div id="titledescription">
-				test blue
+			<div class="row">
+				<div id="titledescription" class="col-lg-12">
+					test blue
+				</div>
 			</div>
-		</section>
-		<section>
-			Test nix!
+			<div id="" class="col-lg-12"></div>
+			<div id="trigger0" class="col-lg-12"></div>
 		</section>
 		
-		<div id="scroll-doc">
-			<div id="scroll-doc-arrow">
-				<img src="">
+		<section id="scene1">
+			<div class="row">
+				<div class="col-lg-12">
+					Test nix!
+				</div>
 			</div>
-			<div id="scroll-doc-img">
-				<img src="">
+		</section>
+		
+		<div id="scroll-doc-wrapper">
+			<div id="scroll-doc">
+				<div id="scroll-doc-arrow">
+					<img src="img/red_arrow.png">
+				</div>
+				<div id="scroll-doc-img">
+				</div>
 			</div>
 		</div>
 	</div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/greensock/TweenMax.min.js" type="text/javascript">
-    <script src="js/iscroll.js"></script>
-    <script src="js/jquery.scrollmagic.min.js"></script>
-    <script src="js/jquery.scrollmagic.debug.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function($) {
+	var docTrigger = 0;
+	// init arrow controller
+	var arrowCtrl = new ScrollMagic();
+	var docCtrl = new ScrollMagic();
+
+	// build tween
+	var tween0_a = TweenMax.to("#scroll-doc-arrow", 2.5, {left: "-700", scale: 0.5});
+	var scene0_a = new ScrollScene({triggerElement: "#scene1", duration: 300, offset: -100})
+			.setTween(tween0_a)
+			.addTo(arrowCtrl);
+	
+	
+	var tween0_d = TweenMax.to("#scroll-doc-img", 2.5, {right: "-30"});
+	var scene0_d = new ScrollScene({triggerElement: "#scene1", duration: 300, offset: -100})
+			.setTween(tween0_d)
+			.addTo(docCtrl);
+
+	var tween0_d1 = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
+	var scene0_d1 = new ScrollScene({triggerElement: "#scene1", duration: 1, offset: 300})
+			.setTween(tween0_d1)
+			.on("leave", changeDocImg)
+			.addTo(docCtrl);
+
+	
+	function changeDocImg(e) {
+		//Change background-image to doc2.png on #scroll-doc-img
+		if (docTrigger == 0) {
+			$("#scroll-doc-img").addClass('full').removeClass('empty');
+			docTrigger = 1;
+		} else {
+			$("#scroll-doc-img").addClass('empty').removeClass('full');
+			docTrigger = 0;
+		}
+	}
+	
+	// show indicators (requires debug extension)
+	scene0_a.addIndicators();
+	scene0_d.addIndicators();
+	scene0_d1.addIndicators();
+
+});
+</script>
+
+
+
+
+
+
+
+
+
 </body>
 </html>

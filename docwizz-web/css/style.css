@@ -9,20 +9,45 @@ body {
     width: 100%;
 }
 
-#scroll-doc {
+#scroll-doc-wrapper {
 	position: fixed;
 	left: 50%;
-	top: 40%;
+	top: 30%;
 	width: 1170px;
 	height: 120px;
 	margin-left: -585px;
 	border: 1px solid #000;
 }
 
-#scroll-doc-img {
-	float: right;
-	margin: 10px -30px 0 0;
+#scroll-doc {
+	position: relative;
+	width: 1170px;
 }
+
+#scroll-doc-img {
+	position: absolute;
+	right: 230px;
+	height: 81px;
+	width: 62px;
+	overflow: hidden;
+	margin-top: 20px;
+}
+
+#scroll-doc-img,
+#scroll-doc-img.empty {background: url("../img/doc1.png") no-repeat left top;}
+#scroll-doc-img.full {background: url("../img/doc2.png") no-repeat left top;}
+
+#scroll-doc-arrow {
+	position: absolute;
+	left: 300px;
+	margin-top: -80px;
+}
+
+#scroll-doc-arrow img {
+	width: 540px;
+	height: 280px;	
+}
+
 
 section#titlechart {
 	height: 100%;
@@ -40,5 +65,14 @@ section#titlechart #titledescription {
     margin: -100px auto auto -300px;
     position: absolute;
     top: 50%;
-    width: 600px;
+}
+
+#trigger0 {
+	position: absolute;
+	bottom: 300px;
+}
+
+#scene1 {
+	margin-bottom: 1000px;
+	
 }
