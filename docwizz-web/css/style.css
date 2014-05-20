@@ -1,8 +1,25 @@
 body {
     margin: 0;
-    height: 100%
+    height: 100%;
+    font-family:  "Source Sans Pro",Helvetica,Arial,sans-serif;
 }    
 
+h1,
+h2 {
+	font-family:  "Josefin Slab",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+.presentation {
+	font-size: 22px;
+}
+
+.placeholder {
+	width: 1170px;
+}
 
 #content-wrapper {
     height: 100%;
@@ -10,66 +27,62 @@ body {
 }
 
 #scroll-doc-wrapper {
-	position: fixed;
+	position: relative;
 	left: 50%;
 	top: 30%;
 	width: 1170px;
 	height: 120px;
 	margin-left: -585px;
-	border: 1px solid #000;
+	/*border: 1px solid #000;*/
 }
 
 #scroll-doc {
-	position: relative;
 	width: 1170px;
+	height: 120px;
 }
 
 #scroll-doc-img {
 	position: absolute;
-	right: 230px;
+	margin-left: 545px;
 	height: 81px;
 	width: 62px;
 	overflow: hidden;
-	margin-top: 20px;
 }
 
 #scroll-doc-img,
 #scroll-doc-img.empty {background: url("../img/doc1.png") no-repeat left top;}
 #scroll-doc-img.full {background: url("../img/doc2.png") no-repeat left top;}
 
-#scroll-doc-arrow {
-	position: absolute;
-	left: 300px;
-	margin-top: -80px;
-}
-
-#scroll-doc-arrow img {
-	width: 540px;
-	height: 280px;	
+.pinned {
+	position: fixed;
 }
 
 
-section#titlechart {
+#titlechart {
 	height: 100%;
 	min-height: 500px;
-	min-width: 100%;
+	/*min-width: 100%;*/
 	position: relative;
-	text-align: center;
-	background-color: blue;
+	text-align: left;
+	background-color: #0CDEE8;
 	
 }
 
-section#titlechart #titledescription {
+#titlechart #titledescription {
     height: 200px;
-    left: 50%;
-    margin: -100px auto auto -300px;
-    position: absolute;
+    /*left: 50%;
+    margin: -100px auto auto -300px;*/
+    position: relative;
     top: 50%;
 }
 
 #trigger0 {
+	top: 50%;
+	right: 0px;
+	height: 1px;
 	position: absolute;
 	bottom: 300px;
+	border: 1px solid #000;
 }
 
 #scene1 {
