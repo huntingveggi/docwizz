@@ -16,11 +16,7 @@ $j(document).ready(function($j) {
 
 	
 	var docTrigger = 0;
-	var docCtrl = new ScrollMagic({
-	    globalSceneOptions: {
-	        triggerHook: "onCenter"
-	    }
-	});
+	var docCtrl = new ScrollMagic();
 	var arrowCtrl = new ScrollMagic({
 	    globalSceneOptions: {
 	        triggerHook: "onLeave"
@@ -32,7 +28,9 @@ $j(document).ready(function($j) {
 	//Scene0 Part 1 - Pin #titlechart for half height of screen
 	var scene0_pin1 = new ScrollScene({triggerElement: "body", duration: displayhalf+20, offset: 0})
 			.setPin("#titlechart")
-			.addTo(arrowCtrl);
+			.triggerHook("onLeave")
+			.addTo(docCtrl);
+	
 	
 	
 	//Scene0 Part 2 - Pin #scroll-doc
@@ -40,12 +38,14 @@ $j(document).ready(function($j) {
 	var scene0_pin2= new ScrollScene({triggerElement: "#trigger0", duration: 1, offset: 0})
 			.setTween(tween0_pin2)
 			.on("leave", pinScroller)
+			.triggerHook("onCenter")
 			.addTo(docCtrl);
 		
 	//Scene0 Part 3 - Scroll #scroll-doc-img to the right
-	var tween0_d = TweenMax.to("#scroll-doc-img", 2.5, {right: "-30"});
+	var tween0_d = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
 			.setTween(tween0_d)
+			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
 	//Scene0 Part 4 - Switch #scroll-doc-img background
@@ -53,6 +53,7 @@ $j(document).ready(function($j) {
 	var scene0_d1 = new ScrollScene({triggerElement: "#scene1", duration: 1, offset: 300})
 			.setTween(tween0_d1)
 			.on("leave", changeDocImg)
+			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
 	

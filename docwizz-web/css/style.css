@@ -16,9 +16,7 @@ h1 {
 .presentation {
 	font-size: 22px;
 }
-#first-placeholder {
-	height: 100px;
-}
+
 .placeholder {
 	width: 1170px;
 }
@@ -59,6 +57,9 @@ h1 {
 	position: fixed;
 }
 
+.scene {
+	height: 100%;
+}
 
 #titlechart {
 	height: 100%;
