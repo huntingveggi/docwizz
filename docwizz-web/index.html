@@ -22,6 +22,7 @@
 </head>
 <body>
 	<div id="content-wrapper">
+
 		<div class="container" id="titlechart">
 			<div class="row">
 				<div class="col-lg-12" id="titledescription">
@@ -55,77 +56,6 @@
 		</section>
 		
 	</div>
-
-<script>
-$(document).ready(function($) {
-	//todo put into init
-	var displayhalf = 1*$(window).height()/2;
-	var trigger0 = 1*displayhalf+20;
-	
-	//Set Trigger Positions
-	$("#trigger0").css({ top: trigger0 });
-	$("#placeholder0").css({ height: trigger0 });
-
-	
-	var docTrigger = 0;
-	// init arrow controller
-	var arrowCtrl = new ScrollMagic();
-	var docCtrl = new ScrollMagic();
-	
-	//Scene0 Part 1 - Pin #scroll-doc
-	var tween0_pin1 = TweenMax.to("#scroll-doc", 1, {border: "0"});
-	var scene0_pin1 = new ScrollScene({triggerElement: "#trigger0", duration: 1, offset: 0})
-			.setTween(tween0_pin1)
-			.on("leave", pinScroller)
-			.addTo(arrowCtrl);
-		
-	//Scene0 Part 2 - Pin #titlechart for half height of screen
-	var scene0_pin2 = new ScrollScene({triggerElement: "body", duration: displayhalf, offset: 0})
-			.setPin("#titlechart")
-			.addTo(arrowCtrl);
-	
-	//Scene0 Part 3 - Scroll #scroll-doc-img to the right
-	var tween0_d = TweenMax.to("#scroll-doc-img", 2.5, {right: "-30"});
-	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
-			.setTween(tween0_d)
-			.addTo(docCtrl);
-
-	//Scene0 Part 4 - Switch #scroll-doc-img background
-	var tween0_d1 = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
-	var scene0_d1 = new ScrollScene({triggerElement: "#scene1", duration: 1, offset: 300})
-			.setTween(tween0_d1)
-			.on("leave", changeDocImg)
-			.addTo(docCtrl);
-
-	
-	function pinScroller(e) {
-		$("#scroll-doc").toggleClass('pinned');
-	}
-	
-	function changeDocImg(e) {
-		//Change background-image to doc2.png on #scroll-doc-img
-		if (docTrigger == 0) {
-			$("#scroll-doc-img").addClass('full').removeClass('empty');
-			docTrigger = 1;
-		} else {
-			$("#scroll-doc-img").addClass('empty').removeClass('full');
-			docTrigger = 0;
-		}
-	}
-	
-	// show indicators (requires debug extension)
-	scene0_pin1.addIndicators();
-	//scene0_pin2.addIndicators();
-	scene0_d.addIndicators();
-	scene0_d1.addIndicators();
-
-});
-</script>
-
-
-
-
-
 
 
 
