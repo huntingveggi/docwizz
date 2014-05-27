@@ -29,16 +29,17 @@ h1 {
 #scroll-doc-wrapper {
 	position: relative;
 	left: 50%;
-	top: 30%;
 	width: 1170px;
-	height: 120px;
 	margin-left: -585px;
 	/*border: 1px solid #000;*/
 }
 
 #scroll-doc {
+	position: relative;
+	top: 50%;
 	width: 1170px;
 	height: 120px;
+	margin-top: -60px;
 }
 
 #scroll-doc-img {
@@ -59,15 +60,20 @@ h1 {
 }
 
 .pinned {
-	position: fixed;
+	position: fixed !important;
 }
 
-.scene {
+.display {
 	height: 100%;
+}
+
+.display-part {
+   height: 33.33%;
+   float: left;
+   position: relative;
 }
 
 #titlechart {
-	height: 100%;
 	min-height: 500px;
 	/*min-width: 100%;*/
 	position: relative;
@@ -77,11 +83,13 @@ h1 {
 }
 
 #titlechart #titledescription {
-    height: 200px;
     /*left: 50%;
     margin: -100px auto auto -300px;*/
     position: relative;
-    top: 50%;
+}
+
+#titledescription {
+ 
 }
 
 #trigger0 {
@@ -95,5 +103,6 @@ h1 {
 
 #scene1 {
 	margin-bottom: 1000px;
-	
+	text-align: left;
+	background-color: #0CDEE8;
 }

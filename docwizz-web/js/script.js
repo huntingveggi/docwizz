@@ -7,13 +7,17 @@ $j(document).ready(function($j) {
 	
 	
 	//todo put into init
-	var displayhalf = 1*$j(window).height()/2;
+	var displayheight = 1*$j(window).height();
+	var displayhalf = displayheight/2;
 	var trigger0 = 1*displayhalf+20;
 	
 	//Set Trigger Positions
 	$j("#trigger0").css({ top: trigger0 });
 	$j("#placeholder0").css({ height: trigger0 });
 
+	//Set height for scenes
+	$j(".display").css({ height: displayheight });
+	$j(".scene").css({ height: displayheight });
 	
 	var docTrigger = 0;
 	var docCtrl = new ScrollMagic();
@@ -26,7 +30,7 @@ $j(document).ready(function($j) {
 	
 	
 	//Scene0 Part 1 - Pin #titlechart for half height of screen
-	var scene0_pin1 = new ScrollScene({triggerElement: "body", duration: displayhalf+20, offset: 0})
+	var scene0_pin1 = new ScrollScene({triggerElement: "body", duration: displayhalf, offset: 0})
 			.setPin("#titlechart")
 			.triggerHook("onLeave")
 			.addTo(docCtrl);
