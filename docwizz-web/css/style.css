@@ -53,6 +53,11 @@ h1 {
 #scroll-doc-img.empty {background: url("../img/doc1.png") no-repeat left top;}
 #scroll-doc-img.full {background: url("../img/doc2.png") no-repeat left top;}
 
+#scroll-doc.pinned {
+	top: 50%;
+	margin-top: -60px;
+}
+
 .pinned {
 	position: fixed;
 }

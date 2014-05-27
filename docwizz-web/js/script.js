@@ -34,17 +34,17 @@ $j(document).ready(function($j) {
 	
 	
 	//Scene0 Part 2 - Pin #scroll-doc
-	var tween0_pin2 = TweenMax.to("#scroll-doc", 1, {border: "0"});
-	var scene0_pin2= new ScrollScene({triggerElement: "#trigger0", duration: 1, offset: 0})
+	/*var tween0_pin2 = TweenMax.to("#scroll-doc", 1, {border: "0"});
+	var scene0_pin2 = new ScrollScene({triggerElement: "#trigger0", duration: 1, offset: 0})
 			.setTween(tween0_pin2)
-			.on("leave", pinScroller)
 			.triggerHook("onCenter")
-			.addTo(docCtrl);
+			.addTo(docCtrl);*/
 		
-	//Scene0 Part 3 - Scroll #scroll-doc-img to the right
+	//Scene0 Part 3 - Scroll #scroll-doc-img to the right and pin
 	var tween0_d = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
 			.setTween(tween0_d)
+			.on("leave", pinScroller)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
