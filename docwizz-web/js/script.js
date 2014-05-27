@@ -21,7 +21,7 @@ $j(document).ready(function($j) {
 	
 	var docTrigger = 0;
 	var docCtrl = new ScrollMagic();
-	var arrowCtrl = new ScrollMagic({
+	var contentCtrl = new ScrollMagic({
 	    globalSceneOptions: {
 	        triggerHook: "onLeave"
 	    }
@@ -29,33 +29,55 @@ $j(document).ready(function($j) {
 	
 	
 	
-	//Scene0 Part 1 - Pin #titlechart for half height of screen
-	var scene0_pin1 = new ScrollScene({triggerElement: "body", duration: displayhalf, offset: 0})
+	//Scene0 Part 0 - Pin #titlechart for half height of screen
+	var scene0_pin = new ScrollScene({triggerElement: "body", duration: displayhalf, offset: 0})
 			.setPin("#titlechart")
 			.triggerHook("onLeave")
 			.addTo(docCtrl);
 	
 	
 	
-	//Scene0 Part 2 - Pin #scroll-doc
-	/*var tween0_pin2 = TweenMax.to("#scroll-doc", 1, {border: "0"});
+	/*//Scene0 Part 1 - Pin #scroll-doc
 	var scene0_pin2 = new ScrollScene({triggerElement: "#trigger0", duration: 1, offset: 0})
-			.setTween(tween0_pin2)
+			.setTween(TweenMax.to("#scroll-doc", 1, {border: "0"}))
 			.triggerHook("onCenter")
 			.addTo(docCtrl);*/
 		
-	//Scene0 Part 3 - Scroll #scroll-doc-img to the right and pin
-	var tween0_d = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
+	//Scene0 Part 1 - Scroll #scroll-doc-img to the right and pin
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
-			.setTween(tween0_d)
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: "-15"}))
 			.on("leave", pinScroller)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
-	//Scene0 Part 4 - Switch #scroll-doc-img background
-	var tween0_d1 = TweenMax.to("#scroll-doc-img", 1, {right: "-30"});
-	var scene0_d1 = new ScrollScene({triggerElement: "#scene1", duration: 1, offset: 300})
-			.setTween(tween0_d1)
+
+	//Scene1 Part 0 - Pin #scene1 for half height of screen
+	var scene1_pin = new ScrollScene({triggerElement: "#scene1", duration: displayheight, offset: 0})
+			.setPin("#scene1")
+			.triggerHook("onLeave")
+			.addTo(docCtrl);
+	
+	//Scene1 Part 1a - slide in Textblock1
+	var scene1_t = new ScrollScene({triggerElement: "#trigger1", duration: 200, offset: 100})
+			.setTween(TweenMax.from("#letter-textblock1", 1, {left: -1000, ease: Back.easeOut}))
+			.triggerHook("onCenter")
+			.addTo(docCtrl);
+	//Scene1 Part 1b - slide in Textblock2
+	var scene1_t2 = new ScrollScene({triggerElement: "#trigger1", duration: 200, offset: 200})
+			.setTween(TweenMax.from("#letter-textblock2", 1, {left: -1000, ease: Back.easeOut}))
+			.triggerHook("onCenter")
+			.addTo(docCtrl);
+	//Scene1 Part 2 - Kick out letter
+	var scene1_l = new ScrollScene({triggerElement: "#trigger1", duration: 250, offset: 450})
+			.setTween(TweenMax.to("#letter-screen", 1, {right: -1000, scale: 0.5}))
+			.triggerHook("onCenter")
+			.addTo(docCtrl);
+	//Scene1 Part3 - Kick in Explanation Text
+	//TODO
+	
+	//Scene1 Part 4 - Switch #scroll-doc-img background
+	var scene1_d = new ScrollScene({triggerElement: "#trigger1", duration: 1, offset: 580})
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: "-16"}))
 			.on("leave", changeDocImg)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
@@ -75,12 +97,16 @@ $j(document).ready(function($j) {
 			docTrigger = 0;
 		}
 	}
-	
+
 	// show indicators (requires debug extension)
-	scene0_pin1.addIndicators();
+	scene0_pin.addIndicators();
 	//scene0_pin2.addIndicators();
 	scene0_d.addIndicators();
-	scene0_d1.addIndicators();
+	scene1_pin.addIndicators();
+	scene1_t.addIndicators();
+	scene1_t2.addIndicators();
+	scene1_l.addIndicators();
+	scene1_d.addIndicators();
 
 });
 

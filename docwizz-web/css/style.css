@@ -48,6 +48,7 @@ h1 {
 	height: 81px;
 	width: 62px;
 	overflow: hidden;
+	z-index: 10;
 }
 
 #scroll-doc-img,
@@ -91,7 +92,11 @@ h1 {
 #titledescription {
  
 }
-
+.trigger {
+	height; 1px;
+	width: 100%;
+	position: relative;
+}
 #trigger0 {
 	top: 50%;
 	right: 0px;
@@ -105,4 +110,29 @@ h1 {
 	margin-bottom: 1000px;
 	text-align: left;
 	background-color: #0CDEE8;
+}
+#letter-screen {
+	position: relative;
+	width: 596px;
+	height: 685px;
+	margin: 0 auto;
+	background: url("../img/business_letter.png") no-repeat left top;
+	z-index: 100;
+}
+#letter-textblock1,
+#letter-textblock2 {
+	position: absolute;
+	height: 119px;
+	width: 458px;
+	left: 67px;
+	padding: 5px;
+	border: 1px solid #000;
+	z-index: 110;
+}
+#letter-textblock1 {
+	top: 301px;
+}
+
+#letter-textblock2 {
+	top: 434px;
 }
