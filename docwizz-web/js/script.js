@@ -45,7 +45,7 @@ $j(document).ready(function($j) {
 		
 	//Scene0 Part 1 - Scroll #scroll-doc-img to the right and pin
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
-			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: "-15"}))
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: -15}))
 			.on("leave", pinScroller)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);

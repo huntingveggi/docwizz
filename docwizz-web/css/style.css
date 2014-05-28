@@ -44,7 +44,8 @@ h1 {
 
 #scroll-doc-img {
 	position: absolute;
-	margin-left: 545px;
+	margin-right: -33px;
+	right: 50%;
 	height: 81px;
 	width: 62px;
 	overflow: hidden;
