@@ -1,7 +1,8 @@
 body {
     margin: 0;
     height: 100%;
-    font-family:  "Source Sans Pro",Helvetica,Arial,sans-serif;
+    font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+    font-size: 16px;
 }    
 
 h1,
@@ -40,6 +41,7 @@ h1 {
 	width: 1170px;
 	height: 120px;
 	margin-top: -60px;
+	margin-left: -15px
 }
 
 #scroll-doc-img {
@@ -80,8 +82,7 @@ h1 {
 	/*min-width: 100%;*/
 	position: relative;
 	text-align: left;
-	background-color: #0CDEE8;
-	
+
 }
 
 #titlechart #titledescription {
@@ -107,16 +108,39 @@ h1 {
 	border: 1px solid #000;
 }
 
+.scene-bg {
+	width: 100%; 
+	padding-bottom: 300px;
+}
+#scene0-bg {
+	background-image: url("");
+}
+
+#scene1-bg {
+	background-image: url("../img/background.png");
+}
+
+
+.scene {
+	background: rgba(200, 200, 200, 0.5); 
+}
+
+#scene0 {
+	
+}
+
 #scene1 {
+	position: relative;
 	margin-bottom: 1000px;
 	text-align: left;
-	background-color: #0CDEE8;
+	/*background-color: #0CDEE8;*/
 }
 #letter-screen {
-	position: relative;
+	position: absolute;
 	width: 596px;
 	height: 685px;
-	margin: 0 auto;
+	left:50%;
+	margin-left: -298px;
 	background: url("../img/business_letter.png") no-repeat left top;
 	z-index: 100;
 }
@@ -137,3 +161,13 @@ h1 {
 #letter-textblock2 {
 	top: 434px;
 }
+#letter-explain {
+	position: absolute;
+	width: 450px;
+	left: 50%;
+	margin-left: -225px;
+	margin-top: 15px;
+	padding: 15px;
+	border: 1px solid #000;
+}
+

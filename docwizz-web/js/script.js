@@ -45,14 +45,14 @@ $j(document).ready(function($j) {
 		
 	//Scene0 Part 1 - Scroll #scroll-doc-img to the right and pin
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
-			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: -15}))
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: 5}))
 			.on("leave", pinScroller)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
 
 	//Scene1 Part 0 - Pin #scene1 for half height of screen
-	var scene1_pin = new ScrollScene({triggerElement: "#scene1", duration: displayheight, offset: 0})
+	var scene1_pin = new ScrollScene({triggerElement: "#scene1", duration: 800, offset: 0})
 			.setPin("#scene1")
 			.triggerHook("onLeave")
 			.addTo(docCtrl);
@@ -68,23 +68,32 @@ $j(document).ready(function($j) {
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 	//Scene1 Part 2 - Kick out letter
-	var scene1_l = new ScrollScene({triggerElement: "#trigger1", duration: 250, offset: 450})
-			.setTween(TweenMax.to("#letter-screen", 1, {right: -1000, scale: 0.5}))
+	var scene1_l = new ScrollScene({triggerElement: "#trigger1", duration: 250, offset: 500})
+			.setTween(TweenMax.to("#letter-screen", 1, {left: 1600, scale: 0.5}))
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 	//Scene1 Part3 - Kick in Explanation Text
-	//TODO
+	var scene1_e = new ScrollScene({triggerElement: "#trigger1", duration: 250, offset: 450})
+			.setTween(TweenMax.from("#letter-explain", 1, {left: -1000}))
+			.triggerHook("onCenter")
+			.addTo(docCtrl);
 	
 	//Scene1 Part 4 - Switch #scroll-doc-img background
 	var scene1_d = new ScrollScene({triggerElement: "#trigger1", duration: 1, offset: 580})
-			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: "-16"}))
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: "5"}))
 			.on("leave", changeDocImg)
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
 	
 	function pinScroller(e) {
-		$j("#scroll-doc").toggleClass('pinned');
+		if ($j("#scroll-doc").offset().top < displayhalf) {
+			$j("#scroll-doc").removeClass('pinned');
+		} else {
+			if (!$j("#scroll-doc").hasClass('pinned')) {
+				$j("#scroll-doc").addClass('pinned');
+			}
+		}
 	}
 	
 	function changeDocImg(e) {
@@ -106,6 +115,7 @@ $j(document).ready(function($j) {
 	scene1_t.addIndicators();
 	scene1_t2.addIndicators();
 	scene1_l.addIndicators();
+	scene1_e.addIndicators();
 	scene1_d.addIndicators();
 
 });
