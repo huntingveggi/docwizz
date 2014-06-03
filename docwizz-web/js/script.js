@@ -42,7 +42,7 @@ $j(document).ready(function($j) {
 			.setTween(TweenMax.to("#scroll-doc", 1, {border: "0"}))
 			.triggerHook("onCenter")
 			.addTo(docCtrl);*/
-		
+	
 	//Scene0 Part 1 - Scroll #scroll-doc-img to the right and pin
 	var scene0_d = new ScrollScene({triggerElement: "#trigger0", duration: displayhalf, offset: 0})
 			.setTween(TweenMax.to("#scroll-doc-img", 1, {right: 5}))
@@ -50,6 +50,13 @@ $j(document).ready(function($j) {
 			.triggerHook("onCenter")
 			.addTo(docCtrl);
 
+	//Scene0 Part 2 - rotate #scroll-doc-img once
+	var scene0_d2 = new ScrollScene({triggerElement: "#scene1", duration: 300, offset: -300})
+			.setTween(TweenMax.to("#scroll-doc-img", 1, {rotation: 360}))
+			.triggerHook("onCenter")
+			.addTo(docCtrl);
+
+	
 
 	//Scene1 Part 0 - Pin #scene1 for half height of screen
 	var scene1_pin = new ScrollScene({triggerElement: "#scene1", duration: 800, offset: 0})
