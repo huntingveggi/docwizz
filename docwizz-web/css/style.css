@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    height: 100%;
+    font-family: "Source Sans Pro",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+}    
+
+h1,
+h2 {
+	font-family:  "Josefin Slab",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+	font-size: 40px;
+}
+
+.presentation {
+	font-size: 22px;
+}
+
+
+#content-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+#scroll-doc-wrapper {
+	position: relative;
+	left: 50%;
+	width: 1170px;
+	margin-left: -585px;
+	/*border: 1px solid #000;*/
+}
+
+#scroll-doc {
+	position: relative;
+	top: 50%;
+	width: 1170px;
+	height: 120px;
+	margin-top: -60px;
+	margin-left: -15px
+}
+
+#scroll-doc-img {
+	position: absolute;
+	margin-right: -33px;
+	right: 50%;
+	height: 81px;
+	width: 62px;
+	overflow: hidden;
+	z-index: 10;
+}
+
+#scroll-doc-img,
+#scroll-doc-img.empty {background: url("../img/doc1.png") no-repeat left top;}
+#scroll-doc-img.full {background: url("../img/doc2.png") no-repeat left top;}
+
+#scroll-doc.pinned {
+	top: 50%;
+	margin-top: -60px;
+}
+
+.pinned {
+	position: fixed !important;
+}
+
+.display {
+	height: 100%;
+}
+
+.display-part {
+   height: 33.33%;
+   float: left;
+   position: relative;
+}
+
+#titlechart {
+	min-height: 500px;
+	/*min-width: 100%;*/
+	position: relative;
+	text-align: left;
+
+}
+
+#titlechart #titledescription {
+    /*left: 50%;
+    margin: -100px auto auto -300px;*/
+    position: relative;
+}
+
+#titledescription {
+ 
+}
+.trigger {
+	height; 1px;
+	width: 100%;
+	position: relative;
+}
+#trigger0 {
+	top: 50%;
+	right: 0px;
+	height: 1px;
+	position: absolute;
+	bottom: 300px;
+	border: 1px solid #000;
+}
+
+.scene-bg {
+	width: 100%; 
+	padding-bottom: 300px;
+}
+#scene0-bg {
+	background-image: url("");
+}
+
+#scene1-bg {
+	background-image: url("../img/background.png");
+}
+
+
+.scene {
+	background: rgba(220, 220, 220, 0.7); 
+}
+
+#scene0 {
+	
+}
+
+#scene1 {
+	position: relative;
+	margin-bottom: 1000px;
+	text-align: left;
+	/*background-color: #0CDEE8;*/
+}
+#letter-screen {
+	position: absolute;
+	width: 596px;
+	height: 685px;
+	left:50%;
+	margin-left: -298px;
+	background: url("../img/business_letter.png") no-repeat left top;
+	z-index: 100;
+}
+#letter-textblock1,
+#letter-textblock2 {
+	position: absolute;
+	height: 119px;
+	width: 458px;
+	left: 67px;
+	padding: 5px;
+	border: 1px solid #000;
+	z-index: 110;
+}
+#letter-textblock1 {
+	top: 301px;
+}
+
+#letter-textblock2 {
+	top: 434px;
+}
+#letter-explain {
+	position: absolute;
+	width: 450px;
+	left: 50%;
+	margin-left: -225px;
+	margin-top: 15px;
+	padding: 15px;
+	border: 1px solid #000;
+}
+
